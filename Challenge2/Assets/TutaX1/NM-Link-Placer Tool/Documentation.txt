@@ -1,0 +1,73 @@
+
+========NM_Link_Placer========
+-This tool allows you to quickly place navmesh links into your scene.
+-The tool is all contained in the "NM_Link_Placer.cs" script.
+
+***How to use?***
+    -add the "NM_Link_Placer.cs" script as a component to an empty gameobject that 
+    will store the navmesh links.
+    -To begin placing the navmesh links, you must turn on "Create-Link-Mode".
+        -You can turn "Create-Link-Mode" on or off by pressing the "Create-Link-Mode"
+        button in the inspector.
+        -You can also turn "Create-Link-Mode" on by pressing "Ctrl+L".
+        -You can also turn "Create-Link-Mode" off by pressing the "Escape" key.
+    -Once "Create-Link-Mode" is on, you can create and place a navmesh link in just
+    two left-mouse clicks in the scene.
+        -The first click sets the starting point for the navmesh link.
+        -The second click sets the end point for the navmesh link and then instantiates
+        the navmesh link using the navmesh link prefab.
+    -You can easily change the settings of the NM links you will place by changing them in 
+    the inspector of the the game object of this tool.
+        -Settings include the NM link's parent game object, width, cost modifier, area type,
+        agent type, and if it is bidirectional. The default parent game object is the game 
+        object of this tool.
+
+***Notes***
+    -**IMPORTANT**: Many of the actions described above must be done with the editor 
+    focused on the Scene view window and must be using the View tool (shortcut 'Q').
+    -If you have set the start point for a navmesh link and not the endpoint, and then 
+    turn "Create-Link-Mode" off, that navmesh link is canceled.
+    -When adding the "NM_Link_Placer" component to an object, it will also add a 
+    NavmeshSurface component as well by design so that the scene shows the gizmos
+    for the navmesh and the navmesh links you place. I recommend keeping the NavmeshSurface
+    component, but disabling/setting it inactive.
+    -This tool was developed using Unity 2021.3.3f1.
+
+***Support email***
+    - lucas.canciox1@gmail.com
+
+***Demo YouTube video***
+    https://youtu.be/cuQan32gT3A
+
+***Demo***
+    -I created a demo scene in the Demo folder with a simple environment, a third person 
+    player, and an enemy. 
+    -The scene has a baked navmesh (using the AI -> Navigation window) and the enemy has a
+    navmeshAgent component. The enemy also has a script that sets the player as its target, 
+    so it will hunt you down.
+    -I created a gameobject called "Navmesh Links" with the "NM_Link_Placer" component. You 
+    can see it already has some navmesh links created around the scene as its children.
+    -Some of the navmesh links you can see in the scene also created using the 
+    AI -> Navigation window.
+
+***Tips/more notes***
+    -Along side this tool, you can use the AI -> Navigation window to bake a navmesh and 
+    bake some off-mesh links (basically navmesh links) automatically. The off-mesh links the
+    create automatically are only for allowing navmesh agents to drop down from things and 
+    jump from one thing to another that have the same y-position. 
+    -Along side this tool, you can also use a tool I found online which automatically 
+    generates navmesh links. It does not always work like you need it to, hence why I created 
+    a manual-placer tool. Here is a link to where you can find some information about it.
+    https://forum.unity.com/threads/navmesh-links-generator-for-navmeshcomponents.515143/
+    -In the demo/scripts, there is a script called "AgentLinkMover.cs" that you can place on 
+    a navmesh agent as a component and allows you to select and edit the way it moves when 
+    crossing navmesh links. When in playMode, this generates an faulty error that I believe
+    needs to be fixed by Unity (I think). I got this script from the navmesh components git 
+    repo     https://github.com/Unity-Technologies/NavMeshComponents
+    -The baked navmesh data generated using the AI -> Navigation window is stored in a
+    folder with the same name as the scene the navmesh belongs to. 
+
+***Feedback & Suggestions***
+    !*!*! I would really appreciate any feedback, suggestions, or reviews you have regarding
+    this package so that I may improve it. Below is a link to the package on the asset store.
+    https://assetstore.unity.com/packages/tools/ai/navmesh-link-placer
